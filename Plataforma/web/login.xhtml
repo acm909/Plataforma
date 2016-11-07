@@ -8,15 +8,15 @@
     </h:head>
     <h:body>
         <h:form>
-            <p:fieldset  legend="Introduzca credenciales"  >
+            <p:fieldset  legend="Introduzca credenciales" style="width: 30%"  >
                 <h:panelGrid columns="2" cellpadding="5" >
-                    <h:outputText value="Usuario : " />
-                    <p:inputText id="usuario" required="true" />
-                    <h:outputText value="Clave : " />
-                    <p:password id="clave" value="#{passwordView.password3}" feedback="true"
+                    <h:outputLabel for="usuario" value="Usuario : " />
+                    <p:inputText id="usuario" required="true"  value="#{validarUsuario.usuario}" />
+                    <h:outputLabel for="password" value="Clave : " />
+                    <p:password id="password" value="#{validarUsuario.password}" feedback="true"
                                 promptLabel="Introduzca su clave" weakLabel="Poco segura"
                                 goodLabel="Segura" strongLabel="Muy Segura" />
-                    <p:commandButton value="Aceptar" />
+                    <p:commandButton value="Aceptar"  action="#{validarUsuario.comUsu}"/>
 
 
                 </h:panelGrid>
