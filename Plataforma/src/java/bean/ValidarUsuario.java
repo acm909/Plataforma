@@ -2,9 +2,11 @@
 package bean;
 
 
+import controlador.GestionDB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
+import persistencia.Usuarios;
 
 /**
  *
@@ -24,22 +26,26 @@ public class ValidarUsuario {
         
     }
     public String comUsu() {
-        String ir;
-        Usuario usu = new Usuario("111A", "jose", "perez herreros", "administrador", "123", "jos@jose.com");
-
-        if (this.usuario.equals(usu.getDni()) && this.password.equals(usu.getPassword())) {
-
-            if (usu.getRol().equals("administrador")) {
-                ir = "administrador";
-
-            } else {
-                ir = "alumno";
-
+        
+        GestionDB g=new GestionDB();
+        Usuarios usu =g.obtenerUsuarioDni(usuario);
+        if (usu!=null){
+            if (usu.getContraseña().equals(password)){
+                if (usu.getFuncion().equals("alumno")){
+                    return "alumno";
+                }else{
+                    return "administrador";
+                }
+            }else{
+                return "error";
             }
-        } else {
-            ir = "error";
         }
-        return ir;
+        else{
+            return "error";
+        }
+        
+        
+        
     }
     
     public String getUsuario() {

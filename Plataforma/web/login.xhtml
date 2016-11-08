@@ -13,9 +13,7 @@
                     <h:outputLabel for="usuario" value="Usuario : " />
                     <p:inputText id="usuario" required="true"  value="#{validarUsuario.usuario}" />
                     <h:outputLabel for="password" value="Clave : " />
-                    <p:password id="password" value="#{validarUsuario.password}" feedback="true"
-                                promptLabel="Introduzca su clave" weakLabel="Poco segura"
-                                goodLabel="Segura" strongLabel="Muy Segura" />
+                    <p:password id="password" value="#{validarUsuario.password}" required="true"/>
                     <p:commandButton value="Aceptar"  action="#{validarUsuario.comUsu}"/>
 
 
