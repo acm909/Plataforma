@@ -21,9 +21,16 @@
                             <h:outputText value="Nombre: *" />
                             <p:inputText value="#{asistenteAlumno.usuario.nombre}" required="true" label="Firstname"/>
                             <h:outputText value="Apellidos: *" />
-                            <p:inputText value="#{asistenteAlumno.usuario.apellidos}" required="true" label="Lastname"/>
-                            <h:outputText value="Contraseña: *" />
-                            <p:inputText value="#{asistenteAlumno.usuario.password}" required="true" label="Contraseña"/>
+                            <p:inputText value="#{asistenteAlumno.usuario.apellidos}" required="true" label="Lastname" />
+                            <h:outputLabel for="password" value="Introduzca su clave : " />
+                            <p:password id="password" value="#{asistenteAlumno.usuario.password}" feedback="true"
+                                promptLabel="Introduzca su clave" weakLabel="Poco segura"
+                                goodLabel="Segura" strongLabel="Muy Segura" />
+                            <h:outputLabel for="password2" value="Repita su clave : " />
+                            <p:password id="password2" value="#{asistenteAlumno.usuario.password}" feedback="true"
+                                promptLabel="Vuelva a introducir su clave" weakLabel="Poco segura"
+                                goodLabel="Segura" strongLabel="Muy Segura" />                           
+                            
                             <h:outputText value="Email: *" />
                             <p:inputText value="#{asistenteAlumno.usuario.email}" required="true" label="Email"/>   
                         </h:panelGrid>                    
